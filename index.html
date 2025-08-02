@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <title>Nilgiri's Fresh Bakes</title>
+    <style>
+      /* Base reset & typography */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background: #111;
+        color: #f0f0f0;
+        line-height: 1.4;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* Header */
+      #header {
+        background: #f5efe1;
+        padding: 0.75rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        flex-wrap: wrap;
+      }
+      #nav_bar ul {
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        flex-wrap: wrap;
+      }
+      #nav_bar a {
+        font-weight: 500;
+        font-family: system-ui, sans-serif;
+        color: #1a1a1a;
+        padding: 4px 6px;
+        position: relative;
+      }
+      .nav_items a:hover,
+      .nav_items a:focus {
+        border-bottom: 2px solid red;
+      }
+      #header_logo img {
+        max-height: 60px;
+        width: auto;
+        display: block;
+      }
+
+      /* Home Section */
+      #home_section {
+        padding: 60px 0;
+        background: url("coffee_background img.jpg") center/cover no-repeat;
+      }
+      #home_layout {
+        max-width: 800px;          /* constrained width */
+        margin: 0 auto;
+        padding: 0 20px;
+        display: block;             /* single column hero */
+      }
+      #home_heading {
+        width: 100%;
+        background-color: rgba(35, 22, 17, 0.95);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 2px 10px 15px rgba(218, 165, 32, 0.5);
+      }
+      #home_div {
+        background-color: transparent;
+        padding: 0;
+        width: 100%;
+        text-align: center;
+        color: white;
+      }
+      #home_div > h1 {
+        margin: 20px 0 10px;
+        font-size: 2rem;
+      }
+      #home_div > h3 {
+        font-size: 1rem;
+        margin: 10px auto;
+        padding: 10px;
+        border: 2px solid white;
+        border-radius: 10px;
+        max-width: 600px;
+      }
+      #home_div img {
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+        margin: 0 auto;
+      }
+
+      /* Products */
+      #products_section {
+        background-image: url("coffee_background.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 50px 0 70px;
+      }
+      .products-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .products-title {
+        text-align: center;
+        color: white;
+        margin-bottom: 5px;
+      }
+      .products-title h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+      .products-title h3 {
+        font-size: 1.1rem;
+        font-weight: 400;
+      }
+      #product_card {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 35px;
+        padding: 50px 0 0;
+      }
+      .product_n {
+        width: 400px;
+        max-width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        box-sizing: border-box;
+        box-shadow: 3px 7px 7px burlywood;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        border-radius: 6px;
+      }
+      .product_n img {
+        width: 300px;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+      .product_n > h3 {
+        color: white;
+        margin-top: 8px;
+      }
+
+      /* About Us */
+      #about_us_page {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 40px;
+        padding: 60px 20px;
+        background-image: url("about us.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      #about_container {
+        width: 400px;
+        max-width: 100%;
+        background-color: rgba(35, 22, 17, 1);
+        padding: 25px;
+        color: white;
+      }
+      #about_container > h1,
+      #about_container > p {
+        text-align: center;
+        margin: 15px 0;
+      }
+      #about_container1 {
+        width: 400px;
+        max-width: 100%;
+        background-color: rgba(35, 22, 17, 1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+      }
+      #about_container1 img {
+        width: 300px;
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Contact */
+      #contact_page {
+        width: 100%;
+        padding: 60px 20px;
+        background-image: url("contact us img.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+      }
+      #form {
+        margin-left: 0;
+        margin-bottom: 3%;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 25px;
+        border-radius: 8px;
+        width: 100%;
+        max-width: 500px;
+      }
+      #form > h1 {
+        padding: 0;
+        position: relative;
+        left: 0;
+        margin-bottom: 15px;
+        text-align: center;
+        color: #1a1a1a;
+      }
+      #form > label {
+        display: block;
+        padding-right: 0;
+        font-size: large;
+        margin-top: 10px;
+        color: #1a1a1a;
+      }
+      #form input[type="text"],
+      #form input[type="email"] {
+        height: 50px;
+        width: 100%;
+        margin: 10px 0;
+        border-radius: 10px;
+        border: 2px solid black;
+        font-size: large;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 0 10px;
+      }
+      .textarea {
+        width: 100%;
+        height: 150px;
+        padding: 10px;
+        margin-top: 10px;
+        resize: vertical;
+        border-radius: 10px;
+        border: 2px solid black;
+        font-size: medium;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      #form input[type="button"] {
+        display: block;
+        margin: 15px auto;
+        padding: 15px;
+        width: 100%;
+        border-radius: 10px;
+        background-color: greenyellow;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      /* Responsive Breakpoints */
+
+      /* Tablet */
+      @media (max-width: 1024px) and (min-width: 641px) {
+        #product_card {
+          padding: 30px 15px;
+          gap: 25px;
+        }
+        .product_n {
+          width: calc(50% - 25px);
+          min-width: 220px;
+        }
+        #about_us_page {
+          gap: 30px;
+          padding: 50px 15px;
+        }
+        #about_container,
+        #about_container1 {
+          width: 48%;
+        }
+      }
+
+      /* Mobile */
+      @media (max-width: 640px) {
+        #header {
+          padding: 0.75rem 1rem;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        #nav_bar ul {
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+        #home_layout {
+          padding: 0;
+        }
+        #home_heading {
+          padding: 20px;
+        }
+        #home_div > h1 {
+          font-size: 1.75rem;
+        }
+        #home_div > h3 {
+          font-size: 0.9rem;
+        }
+        #product_card {
+          padding: 25px 10px;
+          gap: 20px;
+          flex-direction: column;
+        }
+        .product_n {
+          width: 100%;
+          max-width: 100%;
+        }
+        #about_us_page {
+          flex-direction: column;
+          padding: 40px 10px;
+          gap: 25px;
+        }
+        #about_container,
+        #about_container1 {
+          width: 100%;
+        }
+        #contact_page {
+          padding: 40px 10px;
+        }
+        #form {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <nav id="nav_bar">
+        <ul>
+          <li class="nav_items"><a href="#home_section">Home</a></li>
+          <li class="nav_items"><a href="#products_section">Products</a></li>
+          <li class="nav_items"><a href="#about_us_page">About Us</a></li>
+          <li class="nav_items"><a href="#contact_page">Contact</a></li>
+        </ul>
+      </nav>
+      <div id="header_logo">
+        <img src="shop logo.png" alt="shop logo" />
+      </div>
+    </header>
+
+    <section id="home_section">
+      <div id="home_layout">
+        <div id="home_heading">
+          <div id="home_div">
+            <img
+              src="shop logo.png"
+              alt="shop logo"
+            />
+            <h1>Hello Nilgirian's</h1>
+            <h3>
+              A bakery is a place that specializes in making and selling baked
+              goods like bread, cakes, pastries, and cookies
+            </h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="products_section">
+      <div class="products-inner">
+        <div class="products-title">
+          <h1 style="margin-top: 40px; font-size: xx-large; color: white">
+            Nilgiri's fresh bakes
+          </h1>
+          <h3 style="color: white; padding-top: 10px">
+            The artistry of the baker, tasted in every bite
+          </h3>
+        </div>
+        <div id="product_card">
+          <div class="product_n">
+            <img src="tea.png" alt="Tea" />
+            <h3>Tea</h3>
+          </div>
+          <div class="product_n">
+            <img src="coffeee.png" alt="Coffee" />
+            <h3>Coffee</h3>
+          </div>
+          <div class="product_n">
+            <img src="milkshake.png" alt="Milkshake" />
+            <h3>Milkshake</h3>
+          </div>
+          <div class="product_n">
+            <img src="fresh_juice.png" alt="Fresh juice" />
+            <h3>Fresh juice</h3>
+          </div>
+          <div class="product_n">
+            <img src="snacks.png" alt="Snacks" />
+            <h3>Snacks</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about_us_page">
+      <div id="about_container">
+        <h1>About Us</h1>
+        <p>
+          At Nilgiri's fresh bakes, we're passionate about crafting delicious,
+          freshly baked goods that bring joy to our community. From our
+          signature sourdough bread to our decadent pastries, each item is made
+          with the finest ingredients and a dedication to traditional baking
+          methods. Our story began with Prasanna's love for baking and a dream
+          to share their creations with others. Over the years, we've grown from
+          a small, home-based operation to a beloved local bakery. We are
+          committed to using locally sourced ingredients whenever possible and
+          creating a welcoming space for everyone.
+        </p>
+      </div>
+      <div id="about_container1">
+        <img
+          src="cake baking.jpg"
+          alt="cake baking photo"
+        />
+      </div>
+    </section>
+
+    <section id="contact_page">
+      <form id="form">
+        <h1>Contact Us</h1>
+        <label for="name">Name :</label>
+        <input type="text" id="name" /><br />
+        <label for="email">Email :</label>
+        <input type="email" id="email" /><br /><br />
+        <label for="message">Enter your message :</label><br />
+        <textarea
+          class="textarea"
+          placeholder="Write your text here"
+        ></textarea>
+        <input type="button" value="submit" name="submit" />
+      </form>
+    </section>
+  </body>
+</html>
